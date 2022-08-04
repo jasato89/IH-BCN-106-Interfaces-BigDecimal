@@ -2,12 +2,15 @@ package com.ironhack;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        List<Employee> employees0 = new ArrayList<>();
 
         List<Employee> employees = Arrays.asList(
                 new Employee("John Doe", "jdoe@ironhack.com", 10, 30000),
@@ -29,4 +32,8 @@ public class Main {
         }
         writer.close();
     }
+
+    Playable[] playables = {new AndroidPlayer(50), new iOSPlayer(20)};
+
+
 }
