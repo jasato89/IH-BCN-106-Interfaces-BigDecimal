@@ -1,9 +1,17 @@
 package com.ironhack;
 
+import com.ironhack.interfacesExercise.Account;
+import com.ironhack.interfacesExercise.PaymentList;
+import com.ironhack.interfacesExercise.Transaction;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -31,9 +39,37 @@ public class Main {
 
         }
         writer.close();
+
+        Account account1 = new Account("Jaume", "Malaga", 1, 20000);
+        Account account2 = new Account("Alejandro", "Barcelona", 2, 22000);
+
+        Transaction transaction = new Transaction(account1, account2, 20, LocalDate.now());
+
+        Date date = Date.from(Instant.now());
+
+        PaymentList paymentList = new PaymentList("Transacciones entre Jaume y Alejandro", 1);
+
+        paymentList.addTransaction(transaction);
+
+
+        /*
+        Create a TransactionList interface that has the methods
+         getLastTransaction which returns a Transaction object,
+         addTransaction which is void and takes a Transaction as a parameter,
+          getTransactionByDate which takes a Date parameter and returns a
+          Transaction object, and getAllTransactions which returns an
+          ArrayList of Transaction objects.
+
+    Transaction objects should have
+    sellerAccountNumber, buyerAccountNumber,amount,
+ and 'date properties. The Account object should have name, address,
+ accountNumber, and balance properties.
+
+Implement the interface in a class called PaymentList.
+ PaymentList should have an ArrayList property that contains
+ all Transactions. It should implement all methods from the interface.
+         */
+
     }
-
-    Playable[] playables = {new AndroidPlayer(50), new iOSPlayer(20)};
-
 
 }
