@@ -8,6 +8,8 @@ import com.ironhack.interfacesExercise.Transaction;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -63,7 +65,24 @@ public class Main {
         for (Transaction t : paymentList.getAllTransactions()) {
             System.out.println(t.getBuyerAccount().getName());
         }
+        double a = 0.03;
+        double b = 0.01;
 
+        System.out.println(a-b);
+
+        BigDecimal _a = new BigDecimal(a);
+        BigDecimal _b = new BigDecimal(b);
+
+        System.out.println(_a.subtract(_b).setScale(2, RoundingMode.HALF_UP));
+
+        System.out.println(_a.subtract(_b)
+                .multiply(new BigDecimal("25.0"))
+                .divide(new BigDecimal("2.5")).setScale(2, RoundingMode.HALF_UP)
+
+);
+
+        BigDecimal bg = new BigDecimal(0.555);
+        System.out.println(bg.setScale(2, RoundingMode.HALF_UP));
 
         /*
         Create a TransactionList interface that has the methods
