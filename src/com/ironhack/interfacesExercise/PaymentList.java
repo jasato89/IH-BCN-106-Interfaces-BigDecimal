@@ -7,11 +7,12 @@ import java.util.List;
 public class PaymentList implements TransactionList{
     private String listName;
     private int listId;
-    private List<Transaction> transactionList = new ArrayList<Transaction>();
+    private List<Transaction> transactionList;
 
-    public PaymentList(String listName, int listId) {
+    public PaymentList(String listName, int listId, List<Transaction> transactionList) {
         this.listName = listName;
         this.listId = listId;
+        this.transactionList = transactionList;
     }
 
 

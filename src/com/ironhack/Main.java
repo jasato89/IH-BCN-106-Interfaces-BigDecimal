@@ -2,6 +2,7 @@ package com.ironhack;
 
 import com.ironhack.interfacesExercise.Account;
 import com.ironhack.interfacesExercise.PaymentList;
+import com.ironhack.interfacesExercise.SavingsAccount;
 import com.ironhack.interfacesExercise.Transaction;
 
 import java.io.FileWriter;
@@ -40,16 +41,28 @@ public class Main {
         }
         writer.close();
 
-        Account account1 = new Account("Jaume", "Malaga", 1, 20000);
-        Account account2 = new Account("Alejandro", "Barcelona", 2, 22000);
+
+
+
+        Account account1 = new SavingsAccount("Jaume", "Malaga", 1, 20000);
+        Account account2 = new SavingsAccount("Alejandro", "Barcelona", 2, 22000);
+
 
         Transaction transaction = new Transaction(account1, account2, 20, LocalDate.now());
 
         Date date = Date.from(Instant.now());
 
-        PaymentList paymentList = new PaymentList("Transacciones entre Jaume y Alejandro", 1);
+        PaymentList paymentList = new PaymentList("Transacciones entre Jaume y Alejandro", 1, new ArrayList<>());
+
+        for (Transaction t : paymentList.getAllTransactions()) {
+            System.out.println(t.getBuyerAccount());
+        }
 
         paymentList.addTransaction(transaction);
+
+        for (Transaction t : paymentList.getAllTransactions()) {
+            System.out.println(t.getBuyerAccount().getName());
+        }
 
 
         /*

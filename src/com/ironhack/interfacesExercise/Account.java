@@ -1,6 +1,6 @@
 package com.ironhack.interfacesExercise;
 
-public class Account {
+public abstract class Account {
     private String name;
     private String address;
     private int accountNumber;
@@ -12,6 +12,8 @@ public class Account {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
+
+    public abstract void addBalance(double balance);
 
     public String getName() {
         return name;
@@ -45,8 +47,5 @@ public class Account {
         this.balance = balance;
     }
 
-    /*
-    The Account object should have name, address,
- accountNumber, and balance properties.
-     */
+
 }
